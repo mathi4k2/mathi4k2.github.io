@@ -23,10 +23,15 @@ CALCULAR.addEventListener('click', () => {
     } else if (DATO > 30){
         ERROR.style.display = 'none'
         //extrae la superficie de la funcion calcVol
-        let volumen = calcVol(DATO);
+        console.log("Dato mayor a 30")
+        console.log(DATO)
+        let aux=parseFloat(DATO);
+        console.log("auxiliar: "+aux)
+        let volu = superfCorp(aux);
+        console.log(volu)
         //calcula el volumen multiplicando por 1500 y 2000 respectivamente
-        let vol1= volumen*1500
-        let vol2= volumen*2000
+        let vol1= volu*1500
+        let vol2= volu*2000
         //calcula el volumen por hora
         let cc1=vol1/24;
         let cc2=vol2/24;
@@ -59,9 +64,10 @@ function calcVol(peso){
         vol=1500+((peso-20)*20);
     }
     //metodo de superficie corporal superando los 30 kg, devuelve la superficie y el volumen se calcula en el HTML
-    else {
-        vol=((peso*4)+7)/(peso+90);
-    }
     return vol;
 }
 
+function superfCorp(peso){
+        vol=((peso*4)+7)/(peso+90);
+        return vol
+}
